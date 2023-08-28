@@ -1,12 +1,13 @@
 <?php
 include 'conn.php';
-if (isset($_POST['akses'])){
+if (isset($_POST['regis'])){
     $username = strtolower(stripslashes($_POST['username']));
+    $nama = htmlspecialchars($_POST['nama']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $password2 = mysqli_real_escape_string($conn, $_POST['password2']);
-    $nama = htmlspecialchars($_POST['nama']);
     $email = htmlspecialchars($_POST['email']);
     $akses = htmlspecialchars($_POST['akses']);
+   
 
     //cek username
     $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username'");

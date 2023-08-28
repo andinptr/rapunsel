@@ -35,13 +35,13 @@
                                     placeholder="Email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-select form-control form-control user" id="hakakses" name="hakakses" required>
+                                <select class="form-select form-control form-control user" id="akses" name="akses" required>
                                     <option value="" disabled selected>Pilih Hak Akses</option>
                                     <option value="admin">Admin</option>
                                     <option value="operator">Operator</option>
                                 </select>
                             </div>
-                            <button type="submit" name="akses" class="btn btn-primary btn-user btn-block">Buat Akun</button>
+                            <button type="submit" name="regis" class="btn btn-primary btn-user btn-block">Buat Akun</button>
                         </form>
                     </div>
                 </div>
@@ -57,9 +57,9 @@
         var email = document.getElementById("email").value;
         var password = document.getElementById("Password").value;
         var repeatPassword = document.getElementById("RepeatPassword").value;
-        var hakakses = document.getElementById("hakakses").value;
+        var akses = document.getElementById("akses").value;
 
-        if (nama === "" || username === "" || email === "" || password === "" || repeatPassword === "" || hakakses === "") {
+        if (nama === "" || username === "" || email === "" || password === "" || repeatPassword === "" || akses === "") {
             alert("Please fill in all fields");
             return false;
         }
