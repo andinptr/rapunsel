@@ -1,5 +1,5 @@
 <<?php
-session_start();
+// session_start();
 include 'conn.php';
 
 // Check if user is already logged in using session

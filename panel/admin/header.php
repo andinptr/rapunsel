@@ -1,3 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['nama'])) {
+
+?>
+   <script>
+    alert("SILAHKAN LOGIN!");
+    window.open('login.php', '_self');
+    </script>
+<?php
+} else {
+    $status = $_SESSION['hak_akses'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -299,7 +314,7 @@
                     <img class="img-profile rounded-circle"
                         src="img/undraw_profile.svg">
                 </a>
-     
+      
             </li>
 
         </ul>
