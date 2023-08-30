@@ -41,7 +41,7 @@
                                     <option value="operator">Operator</option>
                                 </select>
                             </div>
-                            <button type="submit" name="regis" class="btn btn-primary btn-user btn-block">Buat Akun</button>
+                            <button type="submit" name="regis" class="btn btn-info btn-user btn-block">Buat Akun</button>
                         </form>
                     </div>
                 </div>

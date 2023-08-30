@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['nama'])) {
+if (!isset($_SESSION['login'])) {
 
 ?>
-   <script>
-    alert("SILAHKAN LOGIN!");
-    window.open('login.php', '_self');
+    <script>
+        alert("SILAHKAN LOGIN!");
+        window.open('login.php', '_self');
     </script>
 <?php
 } else {
@@ -36,14 +36,14 @@ if (!isset($_SESSION['nama'])) {
 <body>
 <div id="wrapper">
       <!-- Sidebar -->
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-user-edit"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Admin Panel</div>
+    <div class="sidebar-brand-text mx-3">Admin TPG 2</div>
 </a>
 
 <!-- Divider -->
@@ -108,7 +108,7 @@ if (!isset($_SESSION['nama'])) {
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="logout.php">
+    <a onclick="return confirm('Yakin Ingin Log Out');" class="nav-link" href="logout.php">
         <i class="fas fa-sign-out-alt"></i>
         <span>Logout</span></a>
 </li>
@@ -153,7 +153,7 @@ if (!isset($_SESSION['nama'])) {
                 <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                     aria-label="Search" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">
+                    <button class="btn btn-info" type="button">
                         <i class="fas fa-search fa-sm"></i>
                     </button>
                 </div>
