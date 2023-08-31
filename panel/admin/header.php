@@ -109,7 +109,7 @@ if (!isset($_SESSION['login'])) {
 <?php if ($_SESSION['hak_akses'] == 'admin') : ?>
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="">
+    <a class="nav-link" href="tables.php">
     <i class="fas fa-database"></i>
         <span>Data User</span></a>
 </li>
