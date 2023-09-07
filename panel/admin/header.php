@@ -76,7 +76,7 @@ if (!isset($_SESSION['login'])) {
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Agama</a>
+            <a class="collapse-item" href="data_agama.php">Agama</a>
             <a class="collapse-item" href="utilities-border.html">Kewarganegaraan</a>
             <a class="collapse-item" href="utilities-animation.html">Jurusan</a>
             <a class="collapse-item" href="utilities-other.html">Jenjang</a>
