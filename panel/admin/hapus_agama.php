@@ -16,8 +16,8 @@ include 'conn.php';
 //         </script>
 //         ";
 // }
-if (isset($_GET['id_agama'])) {
-    mysqli_query($conn, "DELETE FROM agama WHERE id_agama='" . $_GET['id_agama'] . "'");
+if (isset($_GET['Id_Agama'])) {
+    mysqli_query($conn, "DELETE FROM agama WHERE id_agama='" . $_GET['Id_Agama'] . "'");
     if (mysqli_affected_rows($conn) > 0) {
         echo "
             <script>

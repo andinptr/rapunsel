@@ -10,18 +10,18 @@ if ($_SESSION['hak_akses'] != 'admin') {
     ";
 }
 if (isset($_POST['simpan'])) {
-    $id_agama = htmlspecialchars($_POST['id_agama']);
-    $nama_agama = htmlspecialchars($_POST['nama_agama']);
+    $id_agama = htmlspecialchars($_POST['Id_Agama']);
+    $nama_agama = htmlspecialchars($_POST['Nama_Agama']);
     $tgl_update = date('Y-m-d');
     $user_update = htmlspecialchars($_POST['user_update']);
-    $id_user = htmlspecialchars($_POST['id_user']);
+    $id_user = htmlspecialchars($_POST['Id_User']);
     $query = "UPDATE agama SET
-            id_agama='$id_agama',
-            nama_agama='$nama_agama',
-            tgl_update='$tgl_update',
-            user_update='$user_update',
-            id_user='$id_user'
-            WHERE id_agama='$id_agama'
+            id_agama='$Id_Agama',
+            nama_agama='$Nama_Agama',
+            tgl_update='$Tgl_Update',
+            user_update='$User_Update',
+            id_user='$Id_User'
+            WHERE id_agama='$Id_Agama'
             ";
     // var_dump($query);
     // exit();
@@ -46,7 +46,7 @@ if (isset($_POST['simpan'])) {
 $data = mysqli_query($conn, "SELECT *
 FROM agama
 LEFT JOIN user
-ON agama.id_user = user.id_user WHERE id_agama='" . $_GET['id_agama'] . "'");
+ON agama.id_user = user.id_user WHERE id_agama='" . $_GET['Id_Agama'] . "'");
 $edit = mysqli_fetch_assoc($data);
 ?>
 <!-- page content -->

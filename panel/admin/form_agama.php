@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 include 'conn   .php';
-if ($_SESSION['hak_akses'] != 'admin') {
+if ($_SESSION['Hak_akses'] != 'admin') {
     echo "
     <script>
         alert('Tidak Memiliki Akses, DILARANG MASUK!');
@@ -11,14 +11,14 @@ if ($_SESSION['hak_akses'] != 'admin') {
 }
 
 if (isset($_POST['simpan'])) {
-    $id_agama = htmlspecialchars($_POST['id_agama']);
-    $nama_agama = htmlspecialchars($_POST['nama_agama']);
-    $tgl_input = htmlspecialchars($_POST['tgl_input']);
-    $user_input = htmlspecialchars($_POST['user_input']);
-    $id_user = htmlspecialchars($_POST['id_user']);
+    $id_agama = htmlspecialchars($_POST['Id_Agama']);
+    $nama_agama = htmlspecialchars($_POST['Nama_Agama']);
+    $tgl_input = htmlspecialchars($_POST['Tgl_Input']);
+    $user_input = htmlspecialchars($_POST['User_Input']);
+    $id_user = htmlspecialchars($_POST['Id_User']);
 
     //cek id sudah terdaftar belum
-    $result = mysqli_query($conn, "SELECT id_agama FROM agama WHERE id_agama = '$id_agama'");
+    $result = mysqli_query($conn, "SELECT id_agama FROM agama WHERE id_agama = '$Id_Agama'");
     if (mysqli_fetch_assoc($result)) {
         echo "
         <script>
@@ -67,10 +67,10 @@ if (isset($_POST['simpan'])) {
                     <form method="post" action="" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_agama">ID Agama<span class="required">*</span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="Id_Agama">ID Agama<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="id_agama" id="id_agama" required="required" class="form-control ">
+                                <input type="text" name="id_agama" id="Id_Agama" required="required" class="form-control ">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -104,7 +104,7 @@ if (isset($_POST['simpan'])) {
                                     $sql = mysqli_query($conn, "SELECT * FROM user WHERE hak_akses = '$status' AND id_user='$_SESSION[id_user];'");
                                     while ($data = mysqli_fetch_assoc($sql)) {
                                     ?>
-                                        <option value="<?= $data['id_user'] ?>"><?= $data['hak_akses'] ?> (<?= $data['nama'] ?>)</option>
+                                        <option value="<?= $data['Id_User'] ?>"><?= $data['hak_akses'] ?> (<?= $data['nama'] ?>)</option>
                                     <?php
                                     }
                                     ?>
