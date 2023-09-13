@@ -73,11 +73,11 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                         ?>
                                             <tr>
                                                 <td><?= $no++; ?></td>
-                                                <td><?= $data['Nama_Agama']; ?></td>
-                                                <td><?= $data['Tgl_Imput']; ?></td>
-                                                <td><?= $data['User_Input']; ?></td>
-                                                <td><?= $data['Tgl_Update']; ?></td>
-                                                <td><?= $data['User_Update']; ?></td>
+                                                <td><?= $data['nama_agama']; ?></td>
+                                                <td><?= $data['tgl_input']; ?></td>
+                                                <td><?= $data['user_input']; ?></td>
+                                                <td><?= $data['tgl_update']; ?></td>
+                                                <td><?= $data['user_update']; ?></td>
                                                 <td><?= $data['hak_akses']; ?> (<?= $data['nama']; ?>)</td>
                                                 <td><a class="btn btn-warning" type="button" href="edit_agama.php?id_agama=<?= $data['Id_Agama']; ?>"><i class="bi bi-pencil-square" aria-hidden="true"></i></a></td>
                                                 <td><a class="btn btn-danger" type="button" onclick="return confirm('Data akan di Hapus?')" href="hapus_agama.php?id_agama=<?= $data['Id_Agama']; ?>"><i class="bi bi-trash-fill" aria-hidden="true"></i></a></td>

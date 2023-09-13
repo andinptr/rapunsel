@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
-include 'conn   .php';
-if ($_SESSION['Hak_akses'] != 'admin') {
+include 'conn.php';
+if ($_SESSION['hak_akses'] != 'admin') {
     echo "
     <script>
         alert('Tidak Memiliki Akses, DILARANG MASUK!');
@@ -18,7 +18,7 @@ if (isset($_POST['simpan'])) {
     $id_user = htmlspecialchars($_POST['Id_User']);
 
     //cek id sudah terdaftar belum
-    $result = mysqli_query($conn, "SELECT id_agama FROM agama WHERE id_agama = '$Id_Agama'");
+    $result = mysqli_query($conn, "SELECT Id_Agama FROM agama WHERE Id_Agama = '$id_agama'");
     if (mysqli_fetch_assoc($result)) {
         echo "
         <script>
@@ -29,7 +29,7 @@ if (isset($_POST['simpan'])) {
         return false;
     }
 
-    mysqli_query($conn, "INSERT INTO agama VALUES('$Id_Agama','$Nama_Agama','$Tgl_Input','$User_Input','','','$Id_user')");
+    mysqli_query($conn, "INSERT INTO agama VALUES('$id_agama','$nama_agama','$tgl_input','$user_input','','','$id_user')");
 
     // var_dump($cek);
     // exit();
@@ -52,82 +52,56 @@ if (isset($_POST['simpan'])) {
 }
 ?>
 
-<!-- page content -->
-<div class="right_col" role="main">
-    <div class="clearfix"></div>
-    <div class="row">
-        <div class="col-md-12 col-sm-12 ">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Form Input Agama <small>Administrator</small></h2>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <br />
-                    <form method="post" action="" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="Id_Agama">ID Agama<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="id_agama" id="Id_Agama" required="required" class="form-control ">
-                            </div>
+<body id="page-top">
+    <div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-2 d-none d-lg-block "></div>
+                <div class="col-lg-8">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Form Agama</h1>
                         </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_agama">Nama Agama <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="nama_agama" name="nama_agama" required="required" class="form-control">
+                        <form class="user" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="id_agama"
+                                placeholder="Id Agama" name="id_agama" required>
                             </div>
-                        </div>
-
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal Input <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input id="tgl_input" name="tgl_input" class="date-picker form-control" type="date" required="required">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="nama_agama"
+                                    placeholder="Nama Agama" name="nama_agama" required>
                             </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="user_input">User Input<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="user_input" name="user_input" required="required" class="form-control">
+                            <div class="form-group">
+                                <input type="datetime-local" class="form-control form-control-user" id="tgl_input" name="tgl_input" required>
                             </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align ">Akses User</label>
-                            <div class="col-md-6 col-sm-6 ">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-user" id="user_input"
+                                    placeholder="User Input" name="user_input">
+                            </div>
+                            <div class="form-group">
                                 <select class="form-control" name="id_user" id="id_user">
                                     <option>Pilih Akses User</option>
                                     <?php
                                     $sql = mysqli_query($conn, "SELECT * FROM user WHERE hak_akses = '$status' AND id_user='$_SESSION[id_user];'");
                                     while ($data = mysqli_fetch_assoc($sql)) {
                                     ?>
-                                        <option value="<?= $data['Id_User'] ?>"><?= $data['hak_akses'] ?> (<?= $data['nama'] ?>)</option>
+                                        <option value="<?= $data['id_user'] ?>"><?= $data['hak_akses'] ?> (<?= $data['nama'] ?>)</option>
                                     <?php
                                     }
                                     ?>
                                 </select>
                             </div>
-                        </div>
-                        <div class="ln_solid"></div>
-                        <div class="item form-group">
-                            <div class="col-md-6 col-sm-6 offset-md-3">
-                                <!-- <button class="btn btn-primary" type="button">Cancel</button> -->
-                                <button class="btn btn-warning" type="reset">Reset</button>
-                                <button type="submit" class="btn btn-success" name="simpan">Simpan</button>
-                            </div>
-                        </div>
-
-                    </form>
+                            <button class="btn btn-danger" type="reset">Reset</button>
+                            <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-<!-- /page content -->
 
 <?php
 include 'footer.php';
