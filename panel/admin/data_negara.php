@@ -23,7 +23,7 @@ if ($_SESSION['hak_akses'] != 'admin') {
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Data Agama <small>Administrator</small></h2>
+                    <h2>Data Kewarganegaraan</h2>
 
                     <div class="clearfix"></div>
                 </div>
@@ -32,7 +32,7 @@ if ($_SESSION['hak_akses'] != 'admin') {
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                                 <div class="text-muted font-12 m-b-30 mb-2">
-                                    <a href="form_agama.php" type="button" class="btn btn-round btn-success ml-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
+                                    <a href="form_negara.php" type="button" class="btn btn-round btn-success ml-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
                                     <div class="btn float-right">
                                         <a class="btn btn-sm btn-danger" onclick="return confirm('Semua Data Akan Terhapus!')" href="hapus_agama.php" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Delete All</a>
                                         <a class="btn btn-sm btn-info" href="file-excel/template_data_agama.xlsx" target="_blank" role="button"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Template Excel</a>
@@ -50,7 +50,7 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Agama</th>
+                                            <th>Nama Negara</th>
                                             <th>Tgl Input</th>
                                             <th>User Input</th>
                                             <th>Tgl Update</th>
@@ -65,22 +65,22 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                         include 'conn.php';
                                         $no = 1;
                                         $query = "SELECT *
-                                        FROM agama
+                                        FROM kewarganegaraan
                                         INNER JOIN user
-                                        ON agama.id_user = user.id_user";
+                                        ON kewarganegaraan.id_user = user.id_user";
                                         $sql = mysqli_query($conn, $query);
                                         while ($data = mysqli_fetch_assoc($sql)) {
                                         ?>
                                             <tr>
                                                 <td><?= $no++; ?></td>
-                                                <td><?= $data['nama_agama']; ?></td>
+                                                <td><?= $data['nama_negara']; ?></td>
                                                 <td><?= $data['tgl_input']; ?></td>
                                                 <td><?= $data['user_input']; ?></td>
                                                 <td><?= $data['tgl_update']; ?></td>
                                                 <td><?= $data['user_update']; ?></td>
                                                 <td><?= $data['hak_akses']; ?> (<?= $data['nama']; ?>)</td>
-                                                <td><a class="btn btn-warning" type="button" href="edit_agama.php?id_agama=<?= $data['id_agama']; ?>"><i class="bi bi-pencil-square" aria-hidden="true"></i></a></td>
-                                                <td><a class="btn btn-danger" type="button" onclick="return confirm('Data akan di Hapus?')" href="hapus_agama.php?id_agama=<?= $data['id_agama']; ?>"><i class="bi bi-trash-fill" aria-hidden="true"></i></a></td>
+                                                <td><a class="btn btn-warning" type="button" href="edit_negara.php?id_negara=<?= $data['id_negara']; ?>"><i class="bi bi-pencil-square" aria-hidden="true"></i></a></td>
+                                                <td><a class="btn btn-danger" type="button" onclick="return confirm('Data akan di Hapus?')" href="hapus_negara.php?id_negara=<?= $data['id_negara']; ?>"><i class="bi bi-trash-fill" aria-hidden="true"></i></a></td>
                                             </tr>
                                         <?php
                                         }

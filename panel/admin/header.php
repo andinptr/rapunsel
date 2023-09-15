@@ -77,7 +77,7 @@ if (!isset($_SESSION['login'])) {
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="data_agama.php">Agama</a>
-            <a class="collapse-item" href="utilities-border.html">Kewarganegaraan</a>
+            <a class="collapse-item" href="data_negara.php">Kewarganegaraan</a>
             <a class="collapse-item" href="utilities-animation.html">Jurusan</a>
             <a class="collapse-item" href="utilities-other.html">Jenjang</a>
         </div>

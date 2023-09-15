@@ -11,25 +11,25 @@ if ($_SESSION['hak_akses'] != 'admin') {
 }
 
 if (isset($_POST['simpan'])) {
-    $id_agama = htmlspecialchars($_POST['Id_Agama']);
-    $nama_agama = htmlspecialchars($_POST['Nama_Agama']);
-    $tgl_input = htmlspecialchars($_POST['Tgl_Input']);
-    $user_input = htmlspecialchars($_POST['User_Input']);
-    $id_user = htmlspecialchars($_POST['Id_User']);
+    $id_negara = htmlspecialchars($_POST['id_negara']);
+    $nama_negara = htmlspecialchars($_POST['nama_negara']);
+    $tgl_input = htmlspecialchars($_POST['tgl_input']);
+    $user_input = htmlspecialchars($_POST['user_input']);
+    $id_user = htmlspecialchars($_POST['id_user']);
 
     //cek id sudah terdaftar belum
-    $result = mysqli_query($conn, "SELECT id_Agama FROM agama WHERE id_agama = '$id_agama'");
+    $result = mysqli_query($conn, "SELECT id_negara FROM kewarganegaraan WHERE id_negara = '$id_negara'");
     if (mysqli_fetch_assoc($result)) {
         echo "
         <script>
             alert('ID sudah terdaftar, silahkan ganit!');
-            document.location.href='form_agama.php';
+            document.location.href='form_negara.php';
         </script>
         ";
         return false;
     }
 
-    mysqli_query($conn, "INSERT INTO agama VALUES('$id_agama','$nama_agama','$tgl_input','$user_input','','','$id_user')");
+    mysqli_query($conn, "INSERT INTO kewarganegaraan VALUES('$id_negara','$nama_negara','$tgl_input','$user_input','','','$id_user')");
 
     // var_dump($cek);
     // exit();
@@ -37,15 +37,15 @@ if (isset($_POST['simpan'])) {
     if (mysqli_affected_rows($conn) > 0) {
         echo "
         <script>
-            alert('Data Agama Berhasil dibuat');
-            document.location.href='data_agama.php';
+            alert('Data Negara Berhasil dibuat');
+            document.location.href='data_negara.php';
         </script>
         ";
     } else {
         echo "
         <script>
-            alert('Data Agama Gagal dibuat');
-            document.location.href='form_agama.php';
+            alert('Data Negara Gagal dibuat');
+            document.location.href='form_negara.php';
         </script>
         ";
     }
@@ -62,26 +62,26 @@ if (isset($_POST['simpan'])) {
                 <div class="col-lg-8">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Form Agama</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Form Negara</h1>
                         </div>
                         <form class="user" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="Id_Agama"
-                                placeholder="Id Agama" name="Id_Agama" required>
+                                <input type="text" class="form-control form-control-user" id="id_negara"
+                                placeholder="Id negara" name="id_negara" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="Nama_Agama"
-                                    placeholder="Nama Agama" name="Nama_Agama" required>
+                                <input type="text" class="form-control form-control-user" id="nama_negara"
+                                    placeholder="Nama negara" name="nama_negara" required>
                             </div>
                             <div class="form-group">
-                                <input type="datetime-local" class="form-control form-control-user" id="Tgl_Input" name="Tgl_Input" required>
+                                <input type="datetime-local" class="form-control form-control-user" id="tgl_input" name="tgl_input" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="User_Input"
-                                    placeholder="User Input" name="User_Input">
+                                <input type="text" class="form-control form-control-user" id="user_input"
+                                    placeholder="User Input" name="user_input">
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="Id_User" id="Id_User">
+                                <select class="form-control" name="id_user" id="id_user">
                                     <option>Pilih Akses User</option>
                                     <?php
                                     $sql = mysqli_query($conn, "SELECT * FROM user WHERE hak_akses = '$status' AND id_user='$_SESSION[id_user];'");
