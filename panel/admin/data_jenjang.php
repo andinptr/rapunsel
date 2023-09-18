@@ -32,16 +32,16 @@ if ($_SESSION['hak_akses'] != 'admin') {
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                                 <div class="text-muted font-12 m-b-30 mb-2">
-                                    <a href="form_negara.php" type="button" class="btn btn-round btn-success ml-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
+                                    <a href="form_jenjang.php" type="button" class="btn btn-round btn-success ml-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
                                     <div class="btn float-right">
-                                        <a class="btn btn-sm btn-danger" onclick="return confirm('Semua Data Akan Terhapus!')" href="hapus_agama.php" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Delete All</a>
-                                        <a class="btn btn-sm btn-info" href="file-excel/template_data_agama.xlsx" target="_blank" role="button"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Template Excel</a>
-                                        <a class="btn btn-sm btn-primary" href="upload_agama.php" role="button"><i class="fa fa-upload" aria-hidden="true"></i> Upload Data</a>
+                                        <a class="btn btn-sm btn-danger" onclick="return confirm('Semua Data Akan Terhapus!')" href="hapus_jenjang.php" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Delete All</a>
+                                        <a class="btn btn-sm btn-info" href="file-excel/template_data_jenjang.xlsx" target="_blank" role="button"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Template Excel</a>
+                                        <a class="btn btn-sm btn-primary" href="upload_jenjang.php" role="button"><i class="fa fa-upload" aria-hidden="true"></i> Upload Data</a>
                                         <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-print" aria-hidden="true"></i>
                                             Cetak Data
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="laporan/excel_agama.php">Cetak Excel</a>
+                                            <a class="dropdown-item" href="laporan/excel_jenjang.php">Cetak Excel</a>
                                             <a class="dropdown-item" href="#">Cetak PDF</a>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                             <th>User Input</th>
                                             <th>Tgl Update</th>
                                             <th>User Update</th>
-                                            <th>Akses</th>
+                                           
                                             <th>Update</th>
                                             <th>Delete</th>
                                         </tr>
@@ -65,9 +65,9 @@ if ($_SESSION['hak_akses'] != 'admin') {
                                         include 'conn.php';
                                         $no = 1;
                                         $query = "SELECT *
-                                        FROM jenjang
-                                        INNER JOIN user
-                                        ON jenjang.id_user = user.id_user";
+                                        FROM jenjang";
+                                        
+                                       
                                         $sql = mysqli_query($conn, $query);
                                         while ($data = mysqli_fetch_assoc($sql)) {
                                         ?>

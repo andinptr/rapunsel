@@ -79,7 +79,7 @@ if (!isset($_SESSION['login'])) {
             <a class="collapse-item" href="data_agama.php">Agama</a>
             <a class="collapse-item" href="data_negara.php">Kewarganegaraan</a>
             <a class="collapse-item" href="utilities-animation.html">Jurusan</a>
-            <a class="collapse-item" href="utilities-other.html">Jenjang</a>
+            <a class="collapse-item" href="data_jenjang.php">Jenjang</a>
         </div>
     </div>
 </li>

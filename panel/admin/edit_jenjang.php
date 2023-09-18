@@ -56,7 +56,7 @@ $edit = mysqli_fetch_assoc($data);
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Form Edit Jenjang<small>Administrator</small></h2>
+                    <h2>Form Edit jenjang<small>Administrator</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -74,7 +74,7 @@ $edit = mysqli_fetch_assoc($data);
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_jenjang">Nama jenjang <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="nama_negara" name="nama_negara" class="form-control" value="<?= $edit['nama_negara']; ?>">
+                                <input type="text" id="nama_jenjang" name="nama_jenjang" class="form-control" value="<?= $edit['nama_jenjang']; ?>">
                             </div>
                         </div>
                         <div class="item form-group">
