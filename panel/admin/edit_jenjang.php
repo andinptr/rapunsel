@@ -15,12 +15,12 @@ if (isset($_POST['simpan'])) {
     $tgl_update = date('Y-m-d');
     $user_update = htmlspecialchars($_POST['user_update']);
     $id_user = htmlspecialchars($_POST['id_user']);
+
     $query = "UPDATE jenjang SET
             id_jenjang='$id_jenjang',
             nama_jenjang='$nama_jenjang',
             tgl_update='$tgl_update',
-            user_update='$user_update',
-            id_user='$id_user'
+            user_update='$user_update'
             WHERE id_jenjang='$id_jenjang'
             ";
     // var_dump($query);
@@ -29,14 +29,14 @@ if (isset($_POST['simpan'])) {
     if (mysqli_affected_rows($conn) > 0) {
         echo "
             <script>
-                alert('Data jenjang Berhasil DiUpdate');
+                alert('Data Jenjang Berhasil DiUpdate');
                 document.location.href='data_jenjang.php';
             </script>
             ";
     } else {
         echo "
             <script>
-                alert('Data jenjang Gagal Update');
+                alert('Data Jenjang Gagal Update');
                 document.location.href='data_jenjang.php';
             </script>
             ";
@@ -44,11 +44,11 @@ if (isset($_POST['simpan'])) {
 }
 
 $data = mysqli_query($conn, "SELECT *
-FROM jenjang
-LEFT JOIN user
-ON jenjang.id_user = user.id_user WHERE id_jenjang='" . $_GET['id_jenjang'] . "'");
+FROM jenjang WHERE id_jenjang='" . $_GET['id_jenjang'] . "'");
 $edit = mysqli_fetch_assoc($data);
 ?>
+?>
+
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="clearfix"></div>
@@ -56,7 +56,7 @@ $edit = mysqli_fetch_assoc($data);
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Form Edit jenjang<small>Administrator</small></h2>
+                    <h2>Form Edit Jenjang <small>Administrator</small></h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -64,42 +64,27 @@ $edit = mysqli_fetch_assoc($data);
                     <form method="post" action="" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_jenjang">ID jenjang<span class="required"></span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="id_jenjang">ID Jenjang<span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="id_jenjang" id="id_jenjang" class="form-control " value="<?= $edit['id_jenjang']; ?>" readonly>
+                                <input type="text" name="id_jenjang" id="id_jenjang" required="required" class="form-control " value="<?= $edit['id_jenjang']; ?>" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_jenjang">Nama jenjang <span class="required"></span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="nama_jenjang">Nama Jenjang <span class="required"></span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="nama_jenjang" name="nama_jenjang" class="form-control" value="<?= $edit['nama_jenjang']; ?>">
+                                <input type="text" id="nama_jenjang" name="nama_jenjang" required="required" class="form-control" value="<?= $edit['nama_jenjang']; ?>">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="user_update">User Update<span class="required">*</span>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="user_input">User Update<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" id="user_update" name="user_update" required="required" class="form-control" value="<?= $edit['user_input']; ?>">
                             </div>
                         </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align ">Akses User</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <select class="form-control" name="id_user" id="id_user">
-                                    <option value="<?= $edit['id_user'] ?>"><?= $edit['hak_akses'] ?> (<?= $edit['nama'] ?>)</option>
-                                    <?php
-                                    $sql = mysqli_query($conn, "SELECT * FROM user WHERE hak_akses = '$status' AND id_user='$_SESSION[id_user];'");
-                                    while ($data = mysqli_fetch_assoc($sql)) {
-                                    ?>
-                                        <option value="<?= $data['id_user'] ?>"><?= $data['hak_akses'] ?> (<?= $data['nama'] ?>)</option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
+
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
@@ -117,6 +102,7 @@ $edit = mysqli_fetch_assoc($data);
 
 </div>
 <!-- /page content -->
+
 <?php
 include 'footer.php';
 ?>

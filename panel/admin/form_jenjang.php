@@ -29,7 +29,7 @@ if (isset($_POST['simpan'])) {
         return false;
     }
 
-    mysqli_query($conn, "INSERT INTO jenjang VALUES('$id_jenjang','$nama_jenjang','$tgl_input','$user_input','','','')");
+    mysqli_query($conn, "INSERT INTO jenjang VALUES('$id_jenjang','$nama_jenjang','$tgl_input','$user_input','','')");
 
     // var_dump($cek);
     // exit();
