@@ -11,14 +11,15 @@ if ($_SESSION['hak_akses'] != 'admin') {
 }
 
 if (isset($_POST['simpan'])) {
-    $Id_jurusan = htmlspecialchars($_POST['Id_jurusan']);
-    $Nama_jurusan = htmlspecialchars($_POST['Nama_jurusan']);
+    $id_jurusan = htmlspecialchars($_POST['id_jurusan']);
+    $nama_jurusan = htmlspecialchars($_POST['nama_jurusan']);
     $tgl_input = htmlspecialchars($_POST['tgl_input']);
     $user_input = htmlspecialchars($_POST['user_input']);
-    
+    $id_user = htmlspecialchars($_POST['id_user']);
+    $id_jenjang = htmlspecialchars($_POST['id_jenjang']);
 
     //cek id sudah terdaftar belum
-    $result = mysqli_query($conn, "SELECT id_jurusan FROM jurusan WHERE id_jurusan = '$Id_jurusan'");
+    $result = mysqli_query($conn, "SELECT id_jurusan FROM jurusan WHERE id_jurusan = '$id_jurusan'");
     if (mysqli_fetch_assoc($result)) {
         echo "
         <script>
@@ -29,10 +30,7 @@ if (isset($_POST['simpan'])) {
         return false;
     }
 
- 
-    mysqli_query($conn, "INSERT INTO jurusan VALUES('$Id_jurusan','$Nama_jurusan','$id_jenjang','$tgl_input','$user_input','','')");
-    // var_dump($cek);
-    // exit();
+    mysqli_query($conn, "INSERT INTO jurusan VALUES('$id_jurusan','$nama_jurusan','$id_jenjang','$tgl_input','$user_input','','','$id_user')");
 
     if (mysqli_affected_rows($conn) > 0) {
         echo "
