@@ -78,7 +78,7 @@ if (!isset($_SESSION['login'])) {
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="data_agama.php">Agama</a>
             <a class="collapse-item" href="data_negara.php">Kewarganegaraan</a>
-            <a class="collapse-item" href="utilities-animation.html">Jurusan</a>
+            <a class="collapse-item" href="data_jurusan.php">Jurusan</a>
             <a class="collapse-item" href="data_jenjang.php">Jenjang</a>
         </div>
     </div>
