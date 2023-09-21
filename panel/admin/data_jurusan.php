@@ -32,7 +32,7 @@ if ($_SESSION['hak_akses'] != 'admin') {
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
                                 <div class="text-muted font-12 m-b-30 mb-2">
--round btn-success ml-2">                                    <a href="form_jurusan.php" type="button" class="btn btn<i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
+                                    <a href="form_jurusan.php" type="button" class="btn btn-round btn-success ml-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
                                     <div class="btn float-right">
                                         <a class="btn btn-sm btn-danger" onclick="return confirm('Semua Data Akan Terhapus!')" href="hapus_jurusan.php" role="button"><i class="fa fa-trash" aria-hidden="true"></i> Delete All</a>
                                         <a class="btn btn-sm btn-info" href="file-excel/template_data_jurusan.xlsx" target="_blank" role="button"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Template Excel</a>
