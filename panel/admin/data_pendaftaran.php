@@ -25,15 +25,7 @@
                             <div class="card-box table-responsive">
                                 <div class="text-muted font-12 m-b-30 mb-2">
                                     <a href="form_pendaftaran.php" type="button" class="btn btn-round btn-success ml-2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Data</a>
-                                    <div class="btn-group float-right">
-                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-print" aria-hidden="true"></i>
-                                            Cetak Data
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="laporan/excel_jurusan.php">Cetak Excel</a>
-                                            <a class="dropdown-item" href="#">Cetak PDF</a>
-                                        </div>
-                                    </div>
+                                  
                                 </div>
                                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -47,6 +39,7 @@
                                             <th>Detail</th>
                                             <th>Update</th>
                                             <th>Delete</th>
+                                            <th>Cetak</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -75,6 +68,7 @@
                                                 <td><a data-toggle="modal" data-target="#detailDaftar" data-id="<?= $data['nis']; ?>" type="submit" class="btn btn-success btn-sm Detai_Pendaftaran">view</a></td>
                                                 <td align="center"><a class="btn btn-warning btn-sm" type="button" href="edit_pendaftaran.php?nis=<?= $data['nis']; ?>"><i class="far fa-edit"></i></a></td>
                                                 <td align="center"><a class="btn btn-danger btn-sm" type="button" onclick="return confirm('Data akan di Hapus?')" href="hapus_pendaftaran.php?nis=<?= $data['nis']; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                                <td> <a href="cetak_surat/surat.php?nis=<?= $data['nis']; ?>" target="_blank" type="button" name="cetak" class="btn btn-success btn-sm text-white" data-dismiss="modal"><i class="fa fa-print" aria-hidden="true"></i></a></td>
                                             </tr>
                                         <?php
                                         }
@@ -186,7 +180,7 @@
                         </div>
 
                         <div class="modal-footer">
-                            <a type="button" name="cetak" class="btn btn-primary btn-sm text-white" data-dismiss="modal"><i class="fa fa-print" aria-hidden="true"></i> Cetak</a>
+                            
                             <button type="reset" name="kembali" class="btn btn-secondary btn-sm" data-dismiss="modal">Kembali</button>
                         </div>
                     </form>
